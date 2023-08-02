@@ -60,8 +60,12 @@ class UserResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id'),
-                TextColumn::make('email'),
+                TextColumn::make('name')
+                    ->searchable(),
+                TextColumn::make('email')
+                    ->searchable(),
                 TextColumn::make('email_verified_at')
+                    ->sortable()
                     ->dateTime(),
                 TextColumn::make('created_at')
                     ->dateTime(),
