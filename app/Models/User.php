@@ -11,7 +11,7 @@ use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable # implements FilamentUser
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
@@ -46,8 +46,8 @@ class User extends Authenticatable implements FilamentUser
         'password' => 'hashed',
     ];
 
-    public function canAccessFilament(): bool
-    {
-        return $this->hasRole(['Admin', 'Writer', 'Moderator']);
-    }
+    // public function canAccessFilament(): bool
+    // {
+    //     return $this->hasRole(['Admin', 'Writer', 'Moderator']);
+    // }
 }

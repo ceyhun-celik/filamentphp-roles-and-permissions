@@ -13,7 +13,7 @@ class PostPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole(['Admin', 'Writer', 'Moderator']);
+        return $user->hasRole(['Admin', 'Writer']) || $user->hasPermissionTo('View Posts');
     }
 
     /**
@@ -29,7 +29,7 @@ class PostPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasRole(['Admin', 'Writer', 'Moderator']);
+        return $user->hasRole(['Admin', 'Writer', 'Moderator']) || $user->hasPermissionTo('Create Posts');
     }
 
     /**
